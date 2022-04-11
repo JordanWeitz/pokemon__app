@@ -11,7 +11,7 @@ function App() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [type, setType] = useState([]);
 	const [typeChoice, setTypeChoice] = useState("");
-	const [typePokemon, setTypePokemon] = useState([]);
+	const [pokemon, setPokemon] = useState([]);
 
 	// this function gets called when a user clicks on a type card
 	const handleTypeChoice = (choice) => {
@@ -34,8 +34,7 @@ function App() {
 
 		if (typeChoice !== "") {
 			axios.get(typeChoice).then((res) => {
-				console.log(res.data.pokemon);
-				setTypePokemon(res.data.pokemon);
+				setPokemon(res.data.pokemon);
 				setIsLoading(false);
 			});
 		}
@@ -50,7 +49,7 @@ function App() {
 				{typeChoice === "" && (
 					<Type type={type} handleTypeChoice={handleTypeChoice} />
 				)}
-				{typeChoice !== "" && <Results typePokemon={typePokemon} />}
+				{typeChoice !== "" && <Results pokemon={pokemon} />}
 			</div>
 		);
 	}

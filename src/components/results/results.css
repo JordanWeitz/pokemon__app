@@ -1,0 +1,17 @@
+.results__wrapper {
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+
+.results {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 900px;
+	height: 100%;
+
+	padding: 0;
+	margin: 0;
+}

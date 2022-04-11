@@ -1,19 +1,29 @@
 import React from "react";
+import PokeModal from "../pokeModal/PokeModal";
+import "./results.css";
 
-function Results({ typePokemon }) {
+import Pokemon from "../pokemon/Pokemon";
+
+function Results({ pokemon }) {
+	const [modal, setModal] = React.useState(false);
+
+	const handleModal = (pokemonForModal) => {
+		setModal(true);
+	};
+
 	return (
-		<div>
-			{/* {typePokemon.map((pokemon) => {
-				<div className="results__card">
-					<h1 className="results__card__name">{pokemon.pokemon.name}</h1>
-					<img
-						className="results__card__image"
-						src={pokemon.pokemon.sprites.front_default}
-						alt="pokemon"
-					/>
-				</div>;
-			})} */}
-		</div>
+		<>
+			<PokeModal className={`${modal} ? "" : "hidden"`} />
+			<div className="results__wrapper">
+				<div className="results">
+					{pokemon.map((pokemon, i) => {
+						return (
+							<Pokemon pokemon={pokemon} key={i} handleModal={handleModal} />
+						);
+					})}
+				</div>
+			</div>
+		</>
 	);
 }
 
