@@ -1,0 +1,32 @@
+.navbar {
+	background-color: #ec2b12;
+	border-bottom: 1px solid #dee2e6;
+	border-radius: 0;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+	font-size: 14px;
+	font-weight: 500;
+	height: 80px;
+	line-height: 50px;
+	padding: 0 15px;
+	position: relative;
+	text-transform: uppercase;
+	transition: all 0.3s ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.navbar > a {
+	cursor: pointer;
+}
+
+.navbar__logo__wrapper {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.navbar__logo {
+	height: 60px;
+	width: 60px;
+}

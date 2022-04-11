@@ -4,9 +4,11 @@ import axios from "axios";
 
 import "./pokemon.css";
 
-function Pokemon({ pokemon, handleModal }) {
+function Pokemon({ pokemon, pokemonLength, i, handleModal, setIsLoading }) {
 	const [image, setImage] = useState("");
 	const [stats, setStats] = useState([]);
+
+	console.log(pokemonLength, "LENGTH");
 
 	const url = pokemon?.pokemon?.url;
 	useEffect(() => {

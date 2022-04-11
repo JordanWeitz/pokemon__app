@@ -26,14 +26,14 @@ function App() {
 			setType(res.data.results);
 			setIsLoading(false);
 		});
-	});
+	}, []);
 	// this useEffect will run when typeChoice changes and will fetch
 	// the pokemon of the type that the user chose
 	useEffect(() => {
 		setIsLoading(true);
 
 		if (typeChoice !== "") {
-			axios.get(typeChoice).then((res) => {
+			axios.get(`${typeChoice}?limit=9&offset=0`).then((res) => {
 				setPokemon(res.data.pokemon);
 				setIsLoading(false);
 			});
@@ -49,7 +49,13 @@ function App() {
 				{typeChoice === "" && (
 					<Type type={type} handleTypeChoice={handleTypeChoice} />
 				)}
-				{typeChoice !== "" && <Results pokemon={pokemon} />}
+				{typeChoice !== "" && (
+					<Results
+						pokemon={pokemon}
+						isLoading={isLoading}
+						setIsLoading={setIsLoading}
+					/>
+				)}
 			</div>
 		);
 	}

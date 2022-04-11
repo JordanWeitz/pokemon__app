@@ -1,0 +1,18 @@
+.statBar__wrapper {
+	display: flex;
+	width: 200px;
+	height: 100%;
+	align-items: center;
+}
+
+.statBar {
+	height: 6px;
+	width: 200px;
+	background-color: lightgray;
+	border-radius: 20px;
+}
+
+.statBar__bar {
+	height: 100%;
+	border-radius: 20px;
+}
