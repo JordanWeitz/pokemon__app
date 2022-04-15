@@ -7,22 +7,24 @@ function About({ pokemon }) {
 
 	return (
 		<div className="about">
-			<table>
+			<table className="about__table">
 				<tr>
-					<th>Name</th>
-					<td>{pokemon.name}</td>
+					<th className="about__table__th">Name</th>
+					<td className="about__table__td">{pokemon.name}</td>
 				</tr>
 				<tr>
-					<th>Height</th>
-					<td>{(pokemon.height / 10.0).toFixed(2) + "m"}</td>
+					<th className="about__table__th">Height</th>
+					<td className="about__table__td">
+						{(pokemon.height / 10.0).toFixed(2) + "m"}
+					</td>
 				</tr>
 				<tr>
-					<th>Weight</th>
-					<td>{`${weightLBS}lbs (${weightKG}kg)`}</td>
+					<th className="about__table__th">Weight</th>
+					<td className="about__table__td">{`${weightLBS}lbs (${weightKG}kg)`}</td>
 				</tr>
 				<tr>
-					<th>Abilities</th>
-					<td>
+					<th className="about__table__th">Abilities</th>
+					<td className="about__table__td">
 						{pokemon?.abilities?.map((ability, i) => {
 							if (i === pokemon.abilities.length - 1) {
 								return ability.ability.name;

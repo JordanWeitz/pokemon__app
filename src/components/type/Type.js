@@ -1,11 +1,12 @@
 import React from "react";
 import "./type.css";
+import color from "../../colorPicker";
 
 function Type({ type, handleTypeChoice }) {
 	return (
 		<div className="type">
 			<div className="type__wrapper">
-				{type?.map((type) => {
+				{type?.map((type, i) => {
 					return (
 						<div
 							className={`type__card ${type?.name}`}

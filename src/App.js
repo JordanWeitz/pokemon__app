@@ -27,25 +27,39 @@ function App() {
 			setIsLoading(false);
 		});
 	}, []);
+
 	// this useEffect will run when typeChoice changes and will fetch
 	// the pokemon of the type that the user chose
 	useEffect(() => {
 		setIsLoading(true);
 
 		if (typeChoice !== "") {
-			axios.get(`${typeChoice}?limit=9&offset=0`).then((res) => {
+			axios.get(`${typeChoice}`).then((res) => {
 				setPokemon(res.data.pokemon);
 				setIsLoading(false);
 			});
 		}
 	}, [typeChoice]);
 
+	const handleSearch = (e) => {
+		e.preventDefault();
+		if (e.keyCode === 13) {
+			let temp = pokemon;
+			temp = temp.filter((pokemon) => {
+				return pokemon.pokemon.name
+					.toLowerCase()
+					.includes(e.target.value.toLowerCase());
+			});
+			setPokemon(temp);
+		}
+	};
+
 	if (isLoading) {
 		return <div>Loading...</div>;
 	} else {
 		return (
 			<div className="App">
-				<Navbar />
+				<Navbar setTypeChoice={setTypeChoice} handleSearch={handleSearch} />
 				{typeChoice === "" && (
 					<Type type={type} handleTypeChoice={handleTypeChoice} />
 				)}

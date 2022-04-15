@@ -30,3 +30,7 @@
 	height: 60px;
 	width: 60px;
 }
+
+.navbar__logo:hover {
+	transform: scale(1.1);
+}

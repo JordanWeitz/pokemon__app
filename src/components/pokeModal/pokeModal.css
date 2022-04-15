@@ -1,0 +1,236 @@
+.pokeModal {
+	margin-top: 50px;
+	width: 400px;
+	height: 650px;
+	border-radius: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+}
+.pokeModal__wrapper {
+	width: 100%;
+	min-height: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 26px;
+}
+
+.pokeModal__top__container {
+	min-height: 450px;
+	background-color: white;
+	border-top-left-radius: 14px;
+	border-top-right-radius: 14px;
+	width: 100%;
+	padding: 50px;
+}
+
+.pokeModal__close__btn__wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.pokeModal__close__btn {
+	background-color: transparent;
+	width: 30px;
+	height: 30px;
+	border: 2px solid white;
+	border-radius: 50%;
+	color: white;
+	font-weight: 900;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.pokeModal__name {
+	text-transform: capitalize;
+	color: white;
+	z-index: 5;
+}
+
+.pokeModal__types {
+	display: flex;
+	margin-top: 6px;
+}
+
+.pokeModal__type {
+	margin-right: 10px;
+	background-color: rgba(211, 211, 211, 0.454);
+	color: white;
+	padding: 4px 14px;
+	border-radius: 12px;
+	font-size: 0.75rem;
+}
+
+.pokeModal__img__wrapper {
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	overflow: hidden;
+	margin-top: -50px;
+	background-color: #a1a4a619;
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.pokeModal__img {
+	transform: scale(1.3);
+	height: 300px;
+	width: 300px;
+	object-fit: cover;
+	image-rendering: pixelated;
+}
+
+.pokeModal__info {
+	min-height: 300px;
+	width: 100%;
+	background-color: white;
+	margin-top: -100px;
+	padding: 50px;
+	border-radius: 26px;
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+}
+
+.pokeModal__info__selector {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 5px;
+	cursor: pointer;
+}
+
+.pokeModal__info__selector > li {
+	margin-right: 25px;
+}
+
+.pokeModal__select {
+	color: #a1a4a6;
+	transition: all 0.3s ease-in-out;
+	padding-bottom: 5px;
+}
+
+.pokeModal__select.active {
+	color: black;
+	font-weight: 700;
+	border-bottom: 2px solid black;
+}
+
+.pokeModal__info__content {
+	margin-top: 25px;
+}
+
+.normal {
+	background-color: #a8a8a8;
+}
+
+.fighting {
+	background-color: #c03028;
+	color: white;
+}
+
+.flying {
+	background-color: #a890f0;
+	color: white;
+}
+
+.poison {
+	background-color: #a040a0;
+	color: white;
+}
+
+.ground {
+	background-color: #e0c068;
+	color: white;
+}
+
+.rock {
+	background-color: #3c3d3e;
+	color: white;
+}
+
+.bug {
+	background-color: #40643b;
+	color: white;
+}
+
+.ghost {
+	border: 2px solid #7b7b7b;
+	color: black;
+}
+
+.ghost > div > h1 {
+	color: black;
+}
+
+.ghost > div > button {
+	color: black;
+}
+
+.steel {
+	background-color: #5a5b5d;
+	color: white;
+}
+
+.fire {
+	background-color: #f08030;
+	color: white;
+}
+
+.water {
+	background-color: #6890f0;
+	color: white;
+}
+
+.grass {
+	background-color: #78c850;
+	color: white;
+}
+
+.electric {
+	background-color: #f8d030;
+	color: white;
+}
+
+.psychic {
+	background-color: #7626d8;
+	color: white;
+}
+
+.ice {
+	background-color: #98d8d8;
+	color: white;
+}
+
+.dragon {
+	background-color: #6f35fc;
+	color: white;
+}
+
+.dark {
+	background-color: #705848;
+	color: white;
+}
+
+.fairy {
+	background-color: #f4b0e9;
+	color: white;
+}
+
+.unknown {
+	background-color: #686868;
+	color: white;
+}
+
+.shadow {
+	background-color: #000000;
+	color: white;
+}

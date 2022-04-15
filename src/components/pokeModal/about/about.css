@@ -1,3 +1,17 @@
 .about {
 	text-transform: capitalize;
+	line-height: 25px;
+	font-size: 1rem;
+}
+
+.about__table__th {
+	color: #a1a4a6;
+	font-weight: 400;
+	text-align: left;
+	margin-right: 20px;
+}
+
+.about__table__td {
+	padding-left: 30px;
+	font-weight: 400;
 }

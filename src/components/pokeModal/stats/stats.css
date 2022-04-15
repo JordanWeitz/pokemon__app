@@ -1,0 +1,19 @@
+.stats {
+	line-height: 20px;
+}
+
+.stats__table__header {
+	color: #a1a4a6;
+	font-weight: 400;
+	text-align: left;
+	padding-right: 20px;
+}
+
+.stats__table__item {
+	padding-right: 15px;
+	font-weight: 500;
+}
+
+.stats__table__bar {
+	width: 170px;
+}

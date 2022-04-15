@@ -1,0 +1,40 @@
+.evolution {
+	width: 100%;
+	height: 100%;
+}
+
+.evolution__header {
+	font-size: 1.1rem;
+	margin-top: -25px;
+}
+
+.evolution__chain {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.evolution__chain:first-child {
+	margin-top: -20px;
+}
+
+.evolution__chain:last-child {
+	margin-bottom: -20px;
+}
+
+.evolution__chain__img__wrapper {
+	border: 1px solid #a1a4a697;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.arrow {
+	width: 30px;
+	height: 30px;
+	transform: rotate(90deg);
+}

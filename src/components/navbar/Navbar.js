@@ -5,15 +5,20 @@ import pikachu from "../../assets/pikachu.png";
 
 import "./navbar.css";
 
-function Navbar() {
+function Navbar({ setTypeChoice, handleSearch }) {
 	return (
 		<div className="navbar">
 			<a>
 				<div className="navbar__logo__wrapper">
-					<img src={pikachu} alt="" className="navbar__logo" />
+					<img
+						src={pikachu}
+						alt=""
+						className="navbar__logo"
+						onClick={() => setTypeChoice("")}
+					/>
 				</div>
 			</a>
-			<Search />
+			<Search handleSearch={handleSearch} />
 		</div>
 	);
 }

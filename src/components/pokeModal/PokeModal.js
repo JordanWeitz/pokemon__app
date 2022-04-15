@@ -5,9 +5,15 @@ import Stats from "./stats/Stats";
 import Evolution from "./evolution/Evolution";
 import About from "./about/About";
 
-function PokeModal({ pokemonToShow, setIsLoading }) {
+import "./pokeModal.css";
+
+function PokeModal({ pokemonToShow, setIsLoading, handleClose }) {
 	const [pokemon, setPokemon] = React.useState([]);
 	const [image, setImage] = React.useState("");
+	const [type, setType] = React.useState("");
+	const [aboutActive, setAboutActive] = React.useState(false);
+	const [statsActive, setStatsActive] = React.useState(false);
+	const [evolutionActive, setEvolutionActive] = React.useState(false);
 	const [infoSelect, setInfoSelect] = React.useState("about");
 
 	/*
@@ -15,50 +21,91 @@ function PokeModal({ pokemonToShow, setIsLoading }) {
 	 *   It will fetch the pokemon data from the API and set the state of the pokemon
 	 */
 	React.useEffect(() => {
-		axios.get(pokemonToShow.pokemon.url).then((res) => {
-			console.log(res.data);
-			setPokemon(res.data);
-			setImage(res.data.sprites.front_default);
+		axios.get(pokemonToShow?.pokemon?.url).then((res) => {
+			console.log(res?.data);
+			setPokemon(res?.data);
+			setType(res.data.types[0].type.name);
+			setImage(res?.data?.sprites?.front_default);
+			setIsLoading(false);
+			setAboutActive(true);
 		});
 	}, [pokemonToShow]);
 
+	// I realize this is terrible code, but I'm not sure how to make it better.
+	// This handles what information is displayed based on the tab the user selects.
+	// if they select about then the about section is displayed etc...
 	const handleInfoSelect = (selection) => {
 		setInfoSelect(selection);
+		switch (selection) {
+			case "about":
+				setAboutActive(true);
+				setStatsActive(false);
+				setEvolutionActive(false);
+				break;
+			case "stats":
+				setAboutActive(false);
+				setStatsActive(true);
+				setEvolutionActive(false);
+				break;
+			case "evolution":
+				setAboutActive(false);
+				setStatsActive(false);
+				setEvolutionActive(true);
+				break;
+		}
+	};
+
+	const handleReset = () => {
+		handleInfoSelect("about");
+		handleClose();
 	};
 
 	return (
 		<div className="pokeModal">
 			<div className="pokeModal__wrapper">
-				<h1 className="pokeModal__name">{pokemon.name}</h1>
-				<div className="pokeModal__types">
-					{pokemon?.types?.map((type, i) => {
-						return (
-							<div className="pokeModal__type" key={i}>
-								{type.type.name}
-							</div>
-						);
-					})}
+				<div className={`pokeModal__top__container ${type}`}>
+					<div className="pokeModal__close__btn__wrapper">
+						<h1 className="pokeModal__name">{pokemon.name}</h1>
+						<button
+							className="pokeModal__close__btn"
+							onClick={() => handleReset()}
+						>
+							X
+						</button>
+					</div>
+
+					<div className="pokeModal__types">
+						{pokemon?.types?.map((type, i) => {
+							return (
+								<div className="pokeModal__type" key={i}>
+									{type.type.name}
+								</div>
+							);
+						})}
+					</div>
+					<div className="pokeModal__img__wrapper">
+						<img src={image} alt="" className="pokeModal__img" />
+					</div>
 				</div>
-				<img src={image} alt="" />
 				<div className="pokeModal__info">
 					<ul className="pokeModal__info__selector">
 						<li
-							className="pokeModal__about"
-							onClick={() => handleInfoSelect("about")}
+							className={`pokeModal__select ${aboutActive ? "active" : ""}`}
+							onClick={(e) => handleInfoSelect("about")}
 						>
-							ABOUT
+							About
 						</li>
 						<li
-							className="pokeModal__stats"
-							onClick={() => handleInfoSelect("stats")}
+							className={`pokeModal__select ${statsActive ? "active" : ""}`}
+							onClick={(e) => handleInfoSelect("stats")}
 						>
-							STATS
+							Stats
 						</li>
 						<li
-							className="pokeModal__evolution"
-							onClick={() => handleInfoSelect("evolution")}
+							className={`pokeModal__select ${evolutionActive ? "active" : ""}`}
+							onClick={(e) => handleInfoSelect("evolution")}
 						>
-							EVOLUTION
+							Evolution
 						</li>
 					</ul>
 					<div className="pokeModal__info__content">
