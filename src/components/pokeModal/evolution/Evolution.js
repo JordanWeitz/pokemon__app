@@ -3,6 +3,7 @@ import axios from "axios";
 import arrow from "../../../assets/arrow.png";
 
 import "./evolution.css";
+import Loading from "../../loading/Loading";
 
 function Evolution({ pokemon }) {
 	const [loading, setLoading] = React.useState(true);
@@ -42,7 +43,12 @@ function Evolution({ pokemon }) {
 	}, []);
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return (
+			<div className="evolution__loading">
+				<div className="evolution__loading__ball"></div>
+				<div className="evolution__loading__ball"></div>
+			</div>
+		);
 	} else {
 		return (
 			<div className="evolution">

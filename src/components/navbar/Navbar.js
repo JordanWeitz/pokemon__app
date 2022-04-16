@@ -8,14 +8,9 @@ import "./navbar.css";
 function Navbar({ setTypeChoice, handleSearch }) {
 	return (
 		<div className="navbar">
-			<a>
+			<a href="/">
 				<div className="navbar__logo__wrapper">
-					<img
-						src={pikachu}
-						alt=""
-						className="navbar__logo"
-						onClick={() => setTypeChoice("")}
-					/>
+					<img src={pikachu} alt="" className="navbar__logo" />
 				</div>
 			</a>
 			<Search handleSearch={handleSearch} />

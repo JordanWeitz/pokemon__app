@@ -38,3 +38,49 @@
 	height: 30px;
 	transform: rotate(90deg);
 }
+
+.evolution__loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 250px;
+	height: 100px;
+
+	animation: spin 1s linear infinite;
+}
+
+/* .evolution__loading__pokeball {
+	width: 20px;
+	height: 20px;
+	background-color: #a1a4a6;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+} */
+
+.evolution__loading__ball {
+	background-color: red;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	animation: grow 1s ease-in-out infinite;
+	transform: scale(0);
+}
+
+.evolution__loading__ball:last-child {
+	background-color: yellow;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes grow {
+	50% {
+		transform: scale(1);
+	}
+}

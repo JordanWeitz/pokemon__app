@@ -126,6 +126,9 @@
 
 .pokeModal__info__content {
 	margin-top: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .normal {

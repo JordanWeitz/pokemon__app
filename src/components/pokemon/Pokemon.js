@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./pokemon.css";
+import Loading from "../loading/Loading";
 
 function Pokemon({ pokemon, pokemonLength, i, handleModal }) {
 	const [image, setImage] = useState("");
@@ -31,7 +32,9 @@ function Pokemon({ pokemon, pokemonLength, i, handleModal }) {
 				onClick={() => handleModal(pokemon)}
 			>
 				{isLoading ? (
-					<>LOADING</>
+					<>
+						<Loading />
+					</>
 				) : (
 					<>
 						<h1 className="pokemon__card__name">{pokemon?.pokemon?.name}</h1>
